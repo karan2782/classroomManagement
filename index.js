@@ -2,14 +2,17 @@ const express = require("express")
 const connection = require("./config/db")
 const classRouter = require('./routes/class.route')
 const studentRouter = require('./routes/student.route')
+const userRouter = require('./routes/user.route')
+const auth = require('./middleware/auth.middleware')
 require('dotenv').config()
 
 const app = express()
 
 app.use(express.json())
 
-app.use('/api/classes', classRouter)
-app.use('/api/students', studentRouter)
+app.use('/api/classes', auth, classRouter)
+app.use('/api/students', auth, studentRouter)
+app.use('/api/user', userRouter)
 
 
 app.get('/', (req, res)=>{
