@@ -11,4 +11,8 @@
 - Through mongoose we can connect server to mongodb database. 
 
 
+- .env varialbe
+-- MONGODB_URI=
+-- SECRET_KEY=
+
 
